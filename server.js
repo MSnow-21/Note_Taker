@@ -11,8 +11,8 @@ app.use(express.json());
 
 // Router
 
-//require('route for api')(app);
-//require('route for html')(app);
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 //Listener
 app.listen(PORT, () => {
