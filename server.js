@@ -68,11 +68,22 @@ console.log(fileData); // returning the object
 
 app.get('/api/notes', (req,res) => {
     res.sendFile(path.join(__dirname, 'db/db.json'));
+    // new line
+    return res.json(db);
 })
 
 app.post('/api/notes', (req,res) =>{
-    const newNote = req.body;
-   // console.log(newNote);
+    const note = req.body;
+    console.log(note);
+
+    //new for note id
+    note.id = note.title.replace(/\s+/g, "").toLowerCase()
+    console.log(note.id);
+
+    //push db to
+    db.push(note);
+    res.json(note);
+
 });
 
 
