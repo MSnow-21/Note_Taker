@@ -51,7 +51,6 @@ const fileData = JSON.parse(fileDB);
 
 console.log(fileData); // returning the object
 
-
 // let newDB = JSON.parse(db);
 // console.log(newDB);
 
@@ -66,14 +65,18 @@ console.log(fileData); // returning the object
 //     // // res.json({title:"Test Title",text:"Test text"})
 // })
 
+// Get for /api/notes
+
 app.get('/api/notes', (req,res) => {
     res.sendFile(path.join(__dirname, 'db/db.json'));
     // new line
     return res.json(db);
 })
 
+// Post for /api/notes
 app.post('/api/notes', (req,res) =>{
     const note = req.body;
+
     console.log(note);
 
     //new for note id
@@ -83,8 +86,31 @@ app.post('/api/notes', (req,res) =>{
     //push db to
     db.push(note);
     res.json(note);
-
 });
+
+// Get for ids
+// testing
+
+app.get('/api/notes/:id', (req,res) =>{
+    const chosen = req.params.id
+    console.log(chosen);
+
+    for (var i=0; i< note.length; i++){
+        if(note === note[i].id){
+            return res.json(note[i]);
+        }
+        return res.json(false);
+    }
+})
+
+//delete for ids
+//testing
+
+app.delete('api/notes/:id', (req,res)=>{
+    const delnote = note.id
+    console.log(delnote);
+    return res.json(delnote);
+})
 
 
 
