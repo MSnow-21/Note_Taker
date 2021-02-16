@@ -13,8 +13,8 @@ Entering note, save button appearing
 ![](assets/notetakersavebutton.png)
 
 Saved note
-![](assets/notetakerclickedsave.png)
+![](assets/notetakersavednote.png)
 
 Retrieving save note to see task
-![](assets/notetakersavednote.png)
+![](assets/notetakerclickedsave.png)
 
