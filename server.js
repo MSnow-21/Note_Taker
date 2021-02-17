@@ -80,7 +80,7 @@ app.post('/api/notes', (req,res) =>{
     console.log(note);
 
     //new for note id
-    note.id = note.title.replace(/\s+/g, "").toLowerCase()
+    note.id = note.title.replace(/\s+/g, "").toLowerCase();
     console.log(note.id);
 
     //push db to
@@ -94,13 +94,14 @@ app.post('/api/notes', (req,res) =>{
 app.get('/api/notes/:id', (req,res) =>{
     const chosen = req.params.id
     console.log(chosen);
+    console.log(db);
 
-    for (var i=0; i< note.length; i++){
-        if(note === note[i].id){
-            return res.json(note[i]);
+    for (var i=0; i< db.length; i++){
+        if(chosen === db[i].id){
+            return res.json(db[i]);
         }
-        return res.json(false);
     }
+    return res.json(false);
 })
 
 //delete for ids
